@@ -1,2 +1,2 @@
 # AnIotOdyssey
-Learning and sharing of my experience into the world of IoT
+Blog site for learning and building the Internet of Things
