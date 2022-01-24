@@ -25,7 +25,7 @@ jobs:
         run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
       - name: Build
         run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
-      - run: dotnet run "${{ env.WORKING_DIRECTORY }}" --output output
+      - run: dotnet run --project "${{ env.WORKING_DIRECTORY }}/AnIotOdyssey.csproj" --output output
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
