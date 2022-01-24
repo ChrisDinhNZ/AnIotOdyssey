@@ -18,6 +18,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - uses: actions/setup-dotnet@v1
+        with:
+            dotnet-version: 6.0.1
+      - run: dotnet restore
+      - run: dotnet build ./AnIotOdyssey.csproj --configuration Release --no-restore
+      - run: dotnet run --project ./AnIotOdyssey.csproj --output output
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
