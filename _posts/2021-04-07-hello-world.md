@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello World
-background: '/assets/images/bg-blog-banner-style1.jpg'
+background: '/assets/images/post-banner-2021-04-07-hello-world.jpg'
 Published: 2021-04-07
 Tags:
   - Arduino
