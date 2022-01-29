@@ -3,7 +3,7 @@ layout: post
 title: Arduino + Visual Studio Code
 background: '/assets/posts/2021-04-09-arduino-visual-studio-code/post-banner-2021-04-09-arduino-visual-studio-code.jpg'
 Published: 2021-04-09
-Tags:
+Tag:
   - Arduino
   - VS Code
   - Tooling
