@@ -18,7 +18,7 @@ _High level overview_
 
 Above is a high level diagram of the components that will be interacting with one another. The doorbell switch is connected to a digital input of the Arduino Nano 33 IoT board so that BLE clients (e.g. nRF Connect) can get notified of the doorbell events.
 
-## What we will need:
+## What you will need:
 
 * VS Code with Arduino extension installed
 * Arduino Nano 33 IoT
