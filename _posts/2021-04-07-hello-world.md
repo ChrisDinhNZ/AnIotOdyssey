@@ -7,6 +7,7 @@ Tag:
   - Arduino
   - Arduino Uno
   - Blink LED
+  - C
 ---
 
 # Hello World!

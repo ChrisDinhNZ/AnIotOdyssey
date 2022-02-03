@@ -7,6 +7,7 @@ Tag:
   - Arduino
   - Arduino Nano
   - BLE
+  - C
 ---
 
 # Beyond The Built-In LED

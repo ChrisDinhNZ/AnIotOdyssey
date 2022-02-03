@@ -7,6 +7,7 @@ Tag:
   - Arduino
   - VS Code
   - Tooling
+  - C
 ---
 
 # Arduino + Visual Studio Code

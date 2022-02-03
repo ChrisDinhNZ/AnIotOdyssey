@@ -8,6 +8,7 @@ Tag:
   - Azure
   - IoT
   - Powershell
+  - .NET
 ---
 
 # Getting Started With Azure IoT Devices
@@ -29,21 +30,21 @@ This blog post will expand on how Azure IoT Hub works by focussing on creating a
 In this section you will be using Azure Powershell to register an IoT device with the Azure IoT Hub. You can easily add new devices using the `Add-AzIotHubDevice` commandlet.
 
 ```
-  PS D:\Workspace\IoTHub> Add-AzIotHubDevice -ResourceGroupName "rg-sea-aniotodyssey" -IotHubName "ih-sea-aniotodyssey" -DeviceId "HomeGateway" -AuthMethod "shared_private_key"
+    PS D:\Workspace\IoTHub> Add-AzIotHubDevice -ResourceGroupName "rg-sea-aniotodyssey" -IotHubName "ih-sea-aniotodyssey" -DeviceId "HomeGateway" -AuthMethod "shared_private_key"
 
-  DeviceId                   : HomeGateway
-  GenerationId               : 123456789101112131
-  ETag                       : "abcdefghijkl"
-  LastActivityTime           : 1/01/0001 12:00:00 am
-  ConnectionState            : Disconnected
-  ConnectionStateUpdatedTime : 1/01/0001 12:00:00 am
-  Status                     : Enabled
-  StatusReason               :
-  StatusUpdatedTime          : 1/01/0001 12:00:00 am
-  CloudToDeviceMessageCount  : 0
-  Authentication             : Sas
-  EdgeEnabled                : False
-  DeviceScope                :
+    DeviceId                   : HomeGateway
+    GenerationId               : 123456789101112131
+    ETag                       : "abcdefghijkl"
+    LastActivityTime           : 1/01/0001 12:00:00 am
+    ConnectionState            : Disconnected
+    ConnectionStateUpdatedTime : 1/01/0001 12:00:00 am
+    Status                     : Enabled
+    StatusReason               :
+    StatusUpdatedTime          : 1/01/0001 12:00:00 am
+    CloudToDeviceMessageCount  : 0
+    Authentication             : Sas
+    EdgeEnabled                : False
+    DeviceScope                :
 ```
 
 Now if you have a look at the IoT Hub in Azure portal, and under Explorers > IoT Devices you should see the new device you have just created.
