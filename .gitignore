@@ -355,3 +355,4 @@ _site/**
 .jekyll-cache/**
 assets/posts/building_a_blog_site_with_jekyll/**
 _posts/building_a_blog_site_with_jekyll.md
+out/**

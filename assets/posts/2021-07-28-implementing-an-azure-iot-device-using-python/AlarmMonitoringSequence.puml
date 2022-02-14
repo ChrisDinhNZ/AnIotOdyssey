@@ -1,0 +1,42 @@
+@startuml AlarmMonitoringSequence
+
+boundary ALARM as a
+entity ALARM_AGENT as b
+queue EVENT_QUEUE as c
+control MESSENGER as d
+entity ALARM_MONITOR_AGENT as e
+
+title Alarm Monitoring With Azure IoT Hub
+
+a --> b: Alarm is activated
+b --> c: Trigger device to cloud (D2C) event
+note right b
+   Status: On
+   Time: 30 June 2021
+   Date: 8:00:00 AM
+end note
+c --> d: Notify event handler
+d --> d: Process event
+d --> e: Trigger cloud to device (C2D) event
+note right d
+   Status: On
+   Time: 30 June 2021
+   Date: 8:00:00 AM
+end note
+...
+a --> b: Alarm is deactivated
+b --> c: Trigger device to cloud (D2C) event
+note right b
+   Status: Off
+   Time: 30 June 2021
+   Date: 8:30:00 AM
+end note
+c --> d: Notify event handler
+d --> d: Process event
+d --> e: Trigger cloud to device (C2D) event
+note right d
+   Status: Off
+   Time: 30 June 2021
+   Date: 8:30:00 AM
+end note
+@enduml
