@@ -25,7 +25,7 @@ By default the hostname is raspberrypi and the user is pi
 
 Now let’s head over another machine and check that you can connect to it. Usually the first thing I do is quickly ping it just to make sure it’s there by executing the command “ping raspberrypi.local” where raspberrypi is the host name and local is the top level domain, in this case is the local network.
 
-![Ping demo](/assets/posts/2021-09-09-setting-up-remote-access-for-raspberry-pi-development/pi_ping_demo.gif)
+![Ping demo](/assets/posts/2021-09-09-setting-up-remote-access-for-raspberry-pi-development/pi_ping_test.gif)
 _Ping demo_
 
 Next let’s check that you can `ssh` into the Raspberry Pi.
