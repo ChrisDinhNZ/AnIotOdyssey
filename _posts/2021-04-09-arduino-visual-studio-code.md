@@ -10,8 +10,6 @@ Tag:
   - C
 ---
 
-# Arduino + Visual Studio Code
-
 I use VS Code for a lot of my development work so it would be nice to be able to work in the same dev environment and work flow. With VS Code you have access to a rich set of built-in features and well as community-built extensions.
 
 ## What you will need:
@@ -43,7 +41,7 @@ Now let’s populate the sketch, it’s a basic countdown timer counting from 10
     static uint8_t currentCount = COUNTDOWN_START_VALUE;
     static uint16_t secondsSinceBoot = 0;
     static uint16_t nextPrintTime = 0;
- 
+
     void setup()
     {
         Serial.begin(9600);
@@ -51,7 +49,7 @@ Now let’s populate the sketch, it’s a basic countdown timer counting from 10
         Serial.println("--------------");
         Serial.println("");
     }
- 
+
     void loop()
     {
         secondsSinceBoot = millis() / 1000;

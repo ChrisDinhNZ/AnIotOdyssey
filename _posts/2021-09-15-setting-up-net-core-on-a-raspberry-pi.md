@@ -9,8 +9,6 @@ Tag:
     - .NET
 ---
 
-# Setting Up .NET Core on a Raspberry Pi
-
 This is a quick excercise to get .NET Core SDK up and running on a Raspberry Pi.
 
 ![No .NET SDK installed demo](/assets/posts/2021-09-15-setting-up-net-core-on-a-raspberry-pi/dotnet_not_installed.gif)

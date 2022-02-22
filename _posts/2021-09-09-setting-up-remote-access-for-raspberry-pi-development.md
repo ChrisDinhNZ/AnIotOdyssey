@@ -10,8 +10,6 @@ Tag:
     - VS Code
 ---
 
-# Setting Up Remote Access For Raspberry Pi Development
-
 The Raspberry Pi is a single board computer (SBC) and is capable of running a desktop capable operating system so you can use it as you would on other desktop machines. But for me, a Raspberry Pi will likely to be used as a gateway or home automation agent. So it will probably be tucked away somewhere and accessed through using SSH.
 
 ## SSH configuration

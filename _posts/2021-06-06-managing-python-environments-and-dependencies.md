@@ -8,8 +8,6 @@ Tag:
     - Tooling
 ---
 
-# Managing Python Environments and Dependencies
-
 The great thing about Python is that whatever problems (including IoT problems) you are trying to solve, there is a very high chance there’s is a Python library out there that’s going to make your life a lot easier. The troublesome thing about Python is that, even at this point in time, there is still two Python universe and it makes life very hard for those that wants to move forward.
 
 Let’s consider the following scenario:
@@ -117,7 +115,7 @@ For installing external packages, you can use `pip install <package-to-install>`
     Successfully built aiocoap
     Installing collected packages: aiocoap
     Successfully installed aiocoap-0.4.1
-    (venv) PS D:\Workspace\python3-program> 
+    (venv) PS D:\Workspace\python3-program>
 ```
 
 You can use `pip list` to list all installed packages.
@@ -162,13 +160,13 @@ You can use “pip list –format=freeze > requirements.txt” to export the lis
     (venv) PS D:\Workspace\python3-program> deactivate
     PS D:\Workspace\python3-program> cd ..
     PS D:\Workspace> mkdir python3-program-v2
-    
+
         Directory: D:\Workspace
-    
+
     Mode                 LastWriteTime         Length Name
     ----                 -------------         ------ ----
     d----           7/06/2021 8:46 pm                python3-program-v2
-    
+
     PS D:\Workspace> cd .\python3-program-v2\
     PS D:\Workspace\python3-program-v2> py -3 -m venv venv
     PS D:\Workspace\python3-program-v2> .\venv\Scripts\activate

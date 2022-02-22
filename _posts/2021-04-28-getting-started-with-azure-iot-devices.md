@@ -11,8 +11,6 @@ Tag:
   - .NET
 ---
 
-# Getting Started With Azure IoT Devices
-
 Unlike desktop computers and mobile phones, generally speaking IoT devices are constraint devices with specific purposes. They either act as sensors, capturing data and events, or they act as actuators performing some action based on some digital inputs.
 
 This blog post will expand on how Azure IoT Hub works by focussing on creating an Azure IoT device and connecting it to an Azure IoT Hub.
@@ -84,7 +82,7 @@ and then reconfigure the logging in the Main() method.
     using Microsoft.Extensions.Hosting;
     using Serilog;
     using Serilog.Events;
-    
+
     namespace HomeGateway
     {
         public class Program
@@ -97,7 +95,7 @@ and then reconfigure the logging in the Main() method.
                     .Enrich.FromLogContext()
                     .WriteTo.File(@"C:\ProgramData\IoTApps\HomeGateway\activities_report.txt")
                     .CreateLogger();
-        
+
                 try
                 {
                     Log.Information("Starting up the service");
@@ -114,7 +112,7 @@ and then reconfigure the logging in the Main() method.
                     Log.CloseAndFlush();
                 }
             }
-        
+
             public static IHostBuilder CreateHostBuilder(string[] args) =>
                 Host.CreateDefaultBuilder(args)
                     .ConfigureServices((hostContext, services) =>
@@ -153,7 +151,7 @@ Next you will deploy the service to a specified folder and register it as a Wind
     PS D:\Workspace\IoTHub\HomeGateway> dotnet publish -o "C:\Program Files (x86)\IoTApps\HomeGateway"
     Microsoft (R) Build Engine version 16.9.0+57a23d249 for .NET
     Copyright (C) Microsoft Corporation. All rights reserved.
-    
+
     Determining projects to restore...
     All projects are up-to-date for restore.
     HomeGateway -> C:\Users\Chris\Source\Repos\IoTApps\HomeGateway\bin\Debug\net5.0\HomeGateway.dll
@@ -209,10 +207,10 @@ Now update the Worker class so that it connects to the IoT Hub when the HomeGate
                 _logger.LogCritical(ex, "Failed to connect to service at: {time}", DateTimeOffset.Now);
                 _clientIsConnected = false;
             }
-        
+
             return base.StartAsync(cancellationToken);
         }
-        
+
         // Placeholder for anything we want to teardown
         public override Task StopAsync(CancellationToken cancellationToken)
         {
@@ -221,9 +219,9 @@ Now update the Worker class so that it connects to the IoT Hub when the HomeGate
                 _logger.LogInformation("Disconnect service at: {time}", DateTimeOffset.Now);
                 _client.CloseAsync();
             }
-        
+
             _logger.LogInformation("Stop service at: {time}", DateTimeOffset.Now);
-        
+
             return base.StopAsync(cancellationToken);
         }
         ...
@@ -249,14 +247,14 @@ Great, the service is now connecting to the IoT Hub as expected. Let’s update 
                 await Task.Delay(60000, stoppingToken);
             }
         }
-        
+
         private async Task SendDeviceToCloudMessageAsync(String messageToSend)
         {
             Message message = new Message(Encoding.ASCII.GetBytes(messageToSend));
             message.Properties.Add("DoorbellPressed", "true");
-        
+
             _logger.LogInformation("Sending message at: {time}", DateTimeOffset.Now);
-        
+
             try
             {
                 await _client.SendEventAsync(message);

@@ -10,8 +10,6 @@ Tag:
   - C
 ---
 
-# Hello World!
-
 Let’s begin the journey with a simple blinking LED program, it’s a simple Arduino [sketch](https://www.arduino.cc/en/pmwiki.php?n=Tutorial/Sketch) which could be considered as the “Hello World!” of Internet of Things. While simple the “Hello World!” program is very important in that it’s a way of verifying the developing environment is set up correctly.
 
 ## What you will need:
@@ -42,17 +40,17 @@ static void SetLedState(bool state)
         digitalWrite(LED_BUILTIN, LOW);
     }
 }
- 
+
 void setup()
 {
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, LOW);
 }
- 
+
 void loop()
 {
     unsigned int secondsSinceBoot = millis() / 1000;
-    
+
     if (secondsSinceBoot % 2 != 0)
     {
         SetLedState(true);

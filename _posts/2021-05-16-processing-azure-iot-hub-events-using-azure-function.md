@@ -12,8 +12,6 @@ Tag:
     - .NET
 ---
 
-# Processing Azure IoT Hub Events Using Azure Function
-
 When an IoT Hub receives an event, the event will be stored in an Azure Event Hub. In this article, I will go through the process of creating an Azure Function and use it to pass the events to another Azure IoT device.
 
 ## What you will need:
@@ -86,18 +84,18 @@ Basically every 3s the Home Gateway will simulate a doorbell event, it will send
         public class Worker : BackgroundService
         {
             ...
-        
+
             private async Task SendDoorbellTriggerMessageAsync()
             {
                 _logger.LogInformation("Sending doorbell event");
-                
+
                 var doorbellTrigger = new DoorbellTrigger
                 {
                     TriggerTime = DateTimeOffset.Now
                 };
-        
+
                 var messageData = JsonSerializer.Serialize(doorbellTrigger);
-        
+
                 var multilinksMessage = new MultiLinksMessage
                 {
                     Source = "HomeGateway",
@@ -105,12 +103,12 @@ Basically every 3s the Home Gateway will simulate a doorbell event, it will send
                     MessageType = "DoorbellTrigger",
                     MessageData = messageData
                 };
-        
+
                 var jsonData = JsonSerializer.Serialize(multilinksMessage);
-        
+
                 var message = new Message(Encoding.ASCII.GetBytes(jsonData));
                 message.ContentType = "MultiLinksMessage";
-        
+
                 try
                 {
                     await _client.SendEventAsync(message);
@@ -136,13 +134,13 @@ The Home Gateway Handler is the Azure Function created earlier. It will process 
         public static class HomeGatewayHandler
         {
             private const string HubConnectionString = "iot-hub-connection-string";
-    
+
             [FunctionName("HomeGatewayHandler")]
             public static async Task Run([EventHubTrigger("MyHub", Connection = "MyHubConnection")] EventData[] events, ILogger log)
             {
                 var exceptions = new List<Exception>();
                 ServiceClient client = ServiceClient.CreateFromConnectionString(HubConnectionString, Microsoft.Azure.Devices.TransportType.Amqp, null);
-    
+
                 foreach (EventData eventData in events)
                 {
                     try
@@ -151,21 +149,21 @@ The Home Gateway Handler is the Azure Function created earlier. It will process 
                     }
                     ...
                 }
-    
+
                 ...
             }
-    
+
             private static async Task CallDirectMethod(ServiceClient client, EventData eventData)
             {
                 var method = new CloudToDeviceMethod("ProcessMessage");
-    
+
                 var payload = Encoding.ASCII.GetString(eventData.Body.Array,
                                                     eventData.Body.Offset,
                                                     eventData.Body.Count);
-    
+
                 var multilinksMessage = JsonSerializer.Deserialize<MultiLinksMessage>(payload);
                 method.SetPayloadJson(payload);
-    
+
                 var response = await client.InvokeDeviceMethodAsync(multilinksMessage.Destination, method);
             }
         }
@@ -184,19 +182,19 @@ Similar to the `Home Gateway`, the `Home Gateway Client` is an Azure IoT device 
         public class Worker : BackgroundService
         {
             ...
-        
+
             private Task<MethodResponse> ProcessMessage(MethodRequest request, object context)
             {
                 var multilinksMessage = JsonSerializer.Deserialize<MultiLinksMessage>(request.DataAsJson);
-        
+
                 if (multilinksMessage.MessageType == "DoorbellTrigger")
                 {
                     var doorbellTrigger = JsonSerializer.Deserialize<DoorbellTrigger>(multilinksMessage.MessageData);
                     _logger.LogInformation($"{multilinksMessage.Source} Doorbell triggered at: {doorbellTrigger.TriggerTime}");
                 }
-        
+
                 var responseData = Encoding.ASCII.GetBytes("\"response\": \"Message processed\"");
-                return Task.FromResult(new MethodResponse(responseData, 200)); 
+                return Task.FromResult(new MethodResponse(responseData, 200));
             }
         }
     }

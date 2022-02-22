@@ -13,8 +13,6 @@ Tag:
     - Powershell
 ---
 
-# Introduction to Protocol Buffers
-
 Protocol buffers (or protobuf) is a method of serializing structured data, and is ideal for communication across constraint systems. It is language-neutral and platform-neutral, developed and used by Google since 2001. It was made available to the public in 2008 (free and open-sourced). Official documentation and source code are available at the following links:
 
 * [Official documentation](https://developers.google.com/protocol-buffers)

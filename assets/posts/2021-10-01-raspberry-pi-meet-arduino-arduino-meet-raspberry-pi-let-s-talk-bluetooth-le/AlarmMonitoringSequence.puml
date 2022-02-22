@@ -1,0 +1,21 @@
+@startuml ObservingSwitchToggleStateUsingBLE
+
+boundary RASPBERRY_PI as a
+boundary ARDUINO as b
+boundary SWITCH as c
+
+title Observing Switch Toggle State Using BLE
+
+a --> a: Scan for BLE devices
+a --> b: Connect to Arduino
+a --> b: Initiate service discovery
+a --> b: Observe switch toggle state
+...
+c --> c: Switch pressed
+b <-- c: Drives GPIO pin high
+a <-- b: Report switch is pressed state
+...
+c --> c: Switch depressed
+b <-- c: Drives GPIO pin low
+a <-- b: Report switch is depressed state
+@enduml

@@ -10,8 +10,6 @@ Tag:
   - C
 ---
 
-# Beyond The Built-In LED
-
 The built-in LED example that comes with the Arduino IDE is a great way to familiarise with the Arduino platform. But the Arduino can do so much more than that, it's a doorway to the world of IoT. This blog post will describe the process of connecting a switch to an Arduino Nano 33 IoT board (e.g a BLE doorbell solution).
 
 ![High level overview](/assets/posts/2021-04-17-beyond-the-built-in-led/doorbell-high-level-view.png)
@@ -57,16 +55,16 @@ So the sketch needed to load onto the Arduino is as follow:
 
 ```
     #define DOORBELL_PIN 2u
-    
+
     static bool isPressed;
-    
+
     void setup()
     {
         pinMode(LED_BUILTIN, OUTPUT);
         pinMode(DOORBELL_PIN, INPUT);
         isPressed = false;
     }
-    
+
     void loop()
     {
         if (digitalRead(DOORBELL_PIN) == HIGH)
@@ -103,41 +101,41 @@ Now update the Arduino sketch to include the doorbell BLE service.
 
 ```
     #include <ArduinoBLE.h>
-    
+
     #define DOORBELL_PIN 2u
-    
+
     static bool isPressed;
-    
+
     BLEService doorBellService("8158b2fd-94e4-4ff5-a99d-9a7980e998d7");
     BLEByteCharacteristic doorBellCharacteristic("8158b2fe-94e4-4ff5-a99d-9a7980e998d7", BLERead | BLENotify);
-    
+
     void setup()
     {
         pinMode(LED_BUILTIN, OUTPUT);
         pinMode(DOORBELL_PIN, INPUT);
         isPressed = false;
-        
+
         if (!BLE.begin())
         {
             /* Just keep looping until BLE module is up and running. */
             while (1);
         }
-    
+
         /* BLE module is up and running, now add our service and characteristic to it. */
         BLE.setLocalName("Awesome Doorbell");
-        
+
         doorBellCharacteristic.writeValue(isPressed);
         doorBellService.addCharacteristic(doorBellCharacteristic);
         BLE.addService(doorBellService);
-        
+
         BLE.setAdvertisedService(doorBellService);
         BLE.advertise();
     }
-    
+
     void loop()
     {
         BLE.poll();
-        
+
         if (digitalRead(DOORBELL_PIN) == HIGH)
         {
             if (!isPressed)

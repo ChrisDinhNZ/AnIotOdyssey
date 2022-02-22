@@ -10,8 +10,6 @@ Tag:
   - Powershell
 ---
 
-# Getting Started With Azure IoT Hub
-
 [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/) is a managed cloud service which provides bi-directional communication between the cloud and IoT devices. It is a platform as a service for building IoT solutions. Being an azure offering, it has security and scalability built-in as well as making it easy to integrate with other Azure services.
 
 This blog post is an introduction to Azure IoT Hub and how to get one up and running.

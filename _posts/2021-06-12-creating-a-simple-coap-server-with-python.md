@@ -11,8 +11,6 @@ Tag:
     - Asyncio
 ---
 
-# Creating a Simple CoAP Server with Python
-
 ## What is CoAP?
 
 CoAP stands for Constrained Application Protocol, is a communication protocol intended for constrained devices or constrained communication channels. It has a client/server based model much like HTTP but with the bonus of the client able to register as a resource observer, unlike HTTP where the client needs to poll the server for updates. While CoAP is built on top of UDP, it does provide mechanism for reliable communications.

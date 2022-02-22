@@ -12,8 +12,6 @@ Tag:
     - Azure Powershell
 ---
 
-# Implementing an Azure IoT Device Using Python
-
 The nice thing about Azure IoT is that there are SDKs already available in popular programming languages including C, C#, Java, Node.js, and Python and therefore should cater for your devices and preferred languages. You can find more details on the specific SDKs can be found with the following links:
 
 * [Constrained Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#constrained-device-sdks)

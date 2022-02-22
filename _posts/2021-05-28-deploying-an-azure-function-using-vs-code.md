@@ -11,8 +11,6 @@ Tag:
     - .NET
 ---
 
-# Deploying An Azure Function using VS Code
-
 In the previous post the focus was about binding an Azure Function to an Azure Iot Hub so that it can process the events coming into the hub. However, the function was running within a local development environment. In this post the focus is to deploy it to a live environment, using `VS Code's Azure Functions extension`.
 
 ## What you will need:

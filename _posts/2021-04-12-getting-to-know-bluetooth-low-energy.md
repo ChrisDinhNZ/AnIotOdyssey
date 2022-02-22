@@ -9,8 +9,6 @@ Tag:
   - BLE
 ---
 
-# Getting To Know Bluetooth Low Energy
-
 Bluetooth Low Energy (BLE) which may also have been referred to as Bluetooth Smart, is a low power wireless communication technology that can be used over a short distance to enable smart devices to communicate (e.g. Personal Area Network, Home Area Network). BLE is not (nor is it compatible with) Bluetooth Classic. Unlike Bluetooth Classic, when powered by a battery BLE can last up months or even years. This makes it an ideal technology for the internet of things (IoT).
 
 Bluetooth Low Energy was formerly known as [Wibree](https://thefutureofthings.com/3041-nokias-wibree-and-the-wireless-zoo/), a technology developed by Nokia and it’s partners. In 2010, Bluetooth SIG merged with Wibree and renamed it Bluetooth LE. In the same year Bluetooth 4.0 was released and include both Bluetooth Classic and Bluetooth LE. Note that while Bluetooth 4.0 (and later versions) supports both BLE and Bluetooth Classic, they are not compatible. This means two devices communicating via Bluetooth must use the same Bluetooth technology.
@@ -78,7 +76,7 @@ GATT allows the table of attributes to be organised in a well defined hierarchic
 
 At the top of the hierarchical data structure, there is a profile. Every attributes must be encapsulated within a profile.
 
-Data attributes are encapsulated within characteristic containers. A characteristic container includes metadata about the data attributes as well as data itself. 
+Data attributes are encapsulated within characteristic containers. A characteristic container includes metadata about the data attributes as well as data itself.
 
 Characteristics can also be logically grouped together as a service. A profile can contain one or more GATT services.
 
