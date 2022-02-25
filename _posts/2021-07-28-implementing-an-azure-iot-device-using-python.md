@@ -12,19 +12,19 @@ Tag:
     - Azure Powershell
 ---
 
-The nice thing about Azure IoT is that there are SDKs already available in popular programming languages including C, C#, Java, Node.js, and Python and therefore should cater for your devices and preferred languages. You can find more details on the specific SDKs can be found with the following links:
+The nice thing about Azure IoT is that there are SDKs already available in popular programming languages including C, C#, Java, Node.js, and Python and therefore should cater for our devices and preferred languages. You can find more details on the specific SDKs can be found with the following links:
 
 * [Constrained Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#constrained-device-sdks)
 * [Unconstrained Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#unconstrained-device-sdks)
 
 In this blog post the focus will be on creating a couple of Azure IoT devices using the Python Device SDK, one for sending events to the IoT hub, while the other for receiving events from the hub.
 
-The scenario is that you have an alarm which is managed by an alarm agent. When the status of the alarm changes, the alarm agent will send an alarm status to the IoT hub. The IoT hub then passes the alarm status to an alarm monitor agent.
+The scenario is that we have an alarm which is managed by an alarm agent. When the status of the alarm changes, the alarm agent will send an alarm status to the IoT hub. The IoT hub then passes the alarm status to an alarm monitor agent.
 
 ![High level sequence diagram](/assets/posts/2021-07-28-implementing-an-azure-iot-device-using-python/AlarmMonitoringSequence.png)
 _High level sequence diagram_
 
-## What you will need:
+## What we will need:
 
 * An Azure account
 * Azure PowerShell
@@ -35,7 +35,7 @@ _High level sequence diagram_
 
 Let’s create the Azure IoT Devices for the `Alarm Agent` and `Alarm Monitor Agent`.
 
-Open a Powershell console and make sure you are signed in with your subscription using Azure Powershell. Once that is done then create the devices as shown below.
+Open a Powershell console and make sure we are signed in with our subscription using Azure Powershell. Once that is done then create the devices as shown below.
 
 ```
     PS D:\Workspace\IoTHub> $AlarmAgent= Add-AzIotHubDevice -ResourceGroupName "rg-sea-multilinks" -IotHubName "ih-sea-multilinks" -DeviceId "AlarmAgent" -AuthMethod "shared_private_key"
@@ -185,12 +185,12 @@ Ok let's quickly summarise the code above to get an idea of what it's doing:
 
 * Read the neccessary app settings which was stored as environment variables earlier, i.e the devices name and their connection string.
 * Instantiate the devices by passing in the required parameters to the respective classes.
-* Connect the devices, the `asyncio.gather()` allows you to start the connections at the same time (well at least calls the `connect()` method asynchronously anyway).
+* Connect the devices, the `asyncio.gather()` allows we to start the connections at the same time (well at least calls the `connect()` method asynchronously anyway).
 * Once the `asyncio.gather()` completes, check that both devices are connected:
-    + If both devices are not connected, then you can't do much so disconnect the ones that is connected and exit.
+    + If both devices are not connected, then we can't do much so disconnect the ones that is connected and exit.
     + Otherwise, sleep for 5 seconds then disconnect and exit.
 
-That is it, very simple conectivity test at this point. If everything went smoothly, you should see in the logs that both devices connected to the IoT hub successfully.
+That is it, very simple conectivity test at this point. If everything went smoothly, we should see in the logs that both devices connected to the IoT hub successfully.
 
 ![Connecting to IoT hub](/assets/posts/2021-07-28-implementing-an-azure-iot-device-using-python/devices_connection_test_demo.gif)
 _Connecting to IoT hub_
@@ -398,16 +398,16 @@ Let’s update the `AlarmMonitorAgent` so it can process incoming alarm status u
 
 When `AlarmMonitorAgent` is initialised, a direct method handler `method_request_handler` was registered. So when the IoT hub receives an alarm status updates, it will invoke this method.
 
-One thing worth noting is that the payload is in JSON format, this is a [current limitation of Azure IoT Hub direct method](https://github.com/Azure/iotedge/issues/610), so you will need to convert this back to a protobuf message.
+One thing worth noting is that the payload is in JSON format, this is a [current limitation of Azure IoT Hub direct method](https://github.com/Azure/iotedge/issues/610), so we will need to convert this back to a protobuf message.
 
 ## A quick test run
 
-Ensure your python environment is activate and run `python .\App.py`
+Ensure our python environment is activate and run `python .\App.py`
 
 ![Run app demo](/assets/posts/2021-07-28-implementing-an-azure-iot-device-using-python/run_app_demo.gif)
 _Run app demo_
 
-and if you watch the file `events.log`, you can see what is sent to and from the IoT hub.
+and if we watch the file `events.log`, we can see what is sent to and from the IoT hub.
 
 ![Events.log demo](/assets/posts/2021-07-28-implementing-an-azure-iot-device-using-python/events_log_demo.gif)
 _Events.log demo_
@@ -431,4 +431,4 @@ is sent from `AlarmAgent`, and
 
 is received by `AlarmMonitorAgent`.
 
-If you have any questions or comment you can reach me on [Twitter](https://twitter.com/ChrisDinhNZ).
+If we have any questions or comment we can reach me on [Twitter](https://twitter.com/ChrisDinhNZ).

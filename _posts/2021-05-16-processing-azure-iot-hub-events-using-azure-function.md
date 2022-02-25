@@ -14,7 +14,7 @@ Tag:
 
 When an IoT Hub receives an event, the event will be stored in an Azure Event Hub. In this article, I will go through the process of creating an Azure Function and use it to pass the events to another Azure IoT device.
 
-## What you will need:
+## What we will need:
 
 * [An Azure account](https://azure.microsoft.com/en-us/free/)
 * [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
@@ -24,18 +24,18 @@ When an IoT Hub receives an event, the event will be stored in an Azure Event Hu
 
 ## Creating an Azure Function with VS Code
 
-To develop Azure Function Apps in VS Code, you will first need to install the Azure Functions extension.
+To develop Azure Function Apps in VS Code, we will first need to install the Azure Functions extension.
 
 ![Azure Functions extension for VS Code](/assets/posts/2021-05-16-processing-azure-iot-hub-events-using-azure-function/screenshot_vscode_azure_function_extension.png)
 
 _Azure Functions extension for VS Code_
 
-Press `F1` to open the command palette, select `Azure Functions: Create new project` and follow the instructions. What you want to do is create a function that will get executed when an event occurs, in this case you want to create one with an `EventHubTrigger`.
+Press `F1` to open the command palette, select `Azure Functions: Create new project` and follow the instructions. What we want to do is create a function that will get executed when an event occurs, in this case we want to create one with an `EventHubTrigger`.
 
 ![Example of creating an Azure Function App using VS Code](/assets/posts/2021-05-16-processing-azure-iot-hub-events-using-azure-function/vscode_new_azure_function_project-1.gif)
 _Example of creating an Azure Function App using VS Code_
 
-Once VS Code generated the code for your function, you will want to update the input parameters to the function, more specifically the name and connection string to your hub:
+Once VS Code generated the code for our function, we will want to update the input parameters to the function, more specifically the name and connection string to our hub:
 
 * MyHub
     + An app setting variable containing the event hub name
@@ -54,7 +54,7 @@ _Local settings example_
 
 The event hub name and connection string can be obtained from the IoT Hub built-in endpoints settings in Azure Portal.
 
-At this point, you can run the Azure App in debug mode and watch the events being handled and printed in the console output.
+At this point, we can run the Azure App in debug mode and watch the events being handled and printed in the console output.
 
 ![IoT device agent sending events to IoT Hub and being processed by an Azure function](/assets/posts/2021-05-16-processing-azure-iot-hub-events-using-azure-function/azure_function_handling_events_demo.gif)
 _IoT device agent sending events to IoT Hub and being processed by an Azure function_
@@ -69,7 +69,7 @@ Now let’s abstract the underlying infrastructure components away and focus on 
 
 **The Home Gateway**
 
-The Home Gateway in this case is an Azure IoT device agent that monitors and control some connected devices in the home. In a real world environment you would be deploying this service on any Azure IoT Hub capable devices ([supported platforms](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-sdk-platform-support#microsoft-sdks-and-device-platform-support)) but for the sake of demonstration, the Home Gateway will be deployed as a Windows background service.
+The Home Gateway in this case is an Azure IoT device agent that monitors and control some connected devices in the home. In a real world environment we would be deploying this service on any Azure IoT Hub capable devices ([supported platforms](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-sdk-platform-support#microsoft-sdks-and-device-platform-support)) but for the sake of demonstration, the Home Gateway will be deployed as a Windows background service.
 
 Basically every 3s the Home Gateway will simulate a doorbell event, it will send a `MultiLinksMessage` event to the IoT hub. The event contains the following data:
 
@@ -174,7 +174,7 @@ In the code above, events are extracted from the event hub and passed into `Call
 
 **The Home Gateway Client**
 
-Similar to the `Home Gateway`, the `Home Gateway Client` is an Azure IoT device agent that can send commands to the Home Gateway or get notified of Home Gateway events. In a real world environment you would be deploying this service on any Azure IoT Hub capable device ([supported platforms](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-sdk-platform-support#microsoft-sdks-and-device-platform-support)) but for the sake of demonstration, the Home Gateway Client will be deployed as a Windows background service.
+Similar to the `Home Gateway`, the `Home Gateway Client` is an Azure IoT device agent that can send commands to the Home Gateway or get notified of Home Gateway events. In a real world environment we would be deploying this service on any Azure IoT Hub capable device ([supported platforms](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-sdk-platform-support#microsoft-sdks-and-device-platform-support)) but for the sake of demonstration, the Home Gateway Client will be deployed as a Windows background service.
 
 ```
     namespace HomeGatewayClient
@@ -202,7 +202,7 @@ Similar to the `Home Gateway`, the `Home Gateway Client` is an Azure IoT device 
 
 When the `Home Gateway Client` receives an event, it will invoke `ProcessMessage()` method above. This method will unpack the payload provided by the `Home Gateway Handler` and checks the MessageType to make sure that it can handle the message, in this case if the type is “DoorbellTrigger” it will log the doorbell trigger time to a local file. After that it will respond to the Home Gateway Handler that everything is good.
 
-To verify that things are working end to end you can inspect the logs in live view using the following Powershell commandlet:
+To verify that things are working end to end we can inspect the logs in live view using the following Powershell commandlet:
 
 ```
     Get-Content -Path C:\ProgramData\IoTApps\HomeGateway\activities_report.txt -Tail 10 -Wait

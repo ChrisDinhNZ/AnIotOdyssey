@@ -17,7 +17,7 @@ _High level overview_
 
 Above is a high level diagram of the components that will be interacting with one another. The doorbell switch is connected to a digital input of the Arduino Nano 33 IoT board so that BLE clients (e.g. nRF Connect) can get notified of the doorbell events.
 
-## What you will need:
+## What we will need:
 
 * VS Code with Arduino extension installed
 * Arduino Nano 33 IoT
@@ -46,7 +46,7 @@ The above diagram shows 3 main components:
   + Ensures digital pin 2 is logically 0 when the doorbell is not pressed
   + Ensures digital pin 2 is logically 1 when the doorbell is pressed
 
-Given the above setup what you want want to do at this stage is to make sure the circuit works:
+Given the above setup what we want to do at this stage is to make sure the circuit works:
 
 * When the doorbell is pressed, the built-in LED will be on
 * When the doorbell is released, the built-in LED will be off
@@ -159,12 +159,12 @@ Now update the Arduino sketch to include the doorbell BLE service.
 
 Download the sketch to the arduino board and it should be ready to go.
 
-At this point you should be able to use a BLE Client (e.g. nRF Connect) to connect to the `Awesome Doorbell`.
+At this point we should be able to use a BLE Client (e.g. nRF Connect) to connect to the `Awesome Doorbell`.
 
 ![Awesome Doorbell as shown on nRF Connect](/assets/posts/2021-04-17-beyond-the-built-in-led/nrf-doorbell-connect.png)
 _Awesome Doorbell as shown on nRF Connect_
 
-After connecting to the doorbell, you can dig into the characteristic details and see that when:
+After connecting to the doorbell, we can dig into the characteristic details and see that when:
 
 * Doorbell is not pressed, value is 0x00
 * Doorbell is pressed, value is 0x01
@@ -172,4 +172,4 @@ After connecting to the doorbell, you can dig into the characteristic details an
 ![Awesome Doorbell status update](/assets/posts/2021-04-17-beyond-the-built-in-led/nrf-doorbell-state.png)
 _Awesome Doorbell status update_
 
-There you have it, the ArduinoBLE library makes it really easy to get Bluetooth up and running on Arduino devices.
+There we have it, the ArduinoBLE library makes it really easy to get Bluetooth up and running on Arduino devices.

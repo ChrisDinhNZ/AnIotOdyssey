@@ -28,7 +28,7 @@ The above diagram consists of 3 main elements:
 
 **The Raspberry Pi**
 
-The Raspberry Pi is a single board computer (SBC) with an operating system, and because it is managed by an operating system you get the same benefits as you would on a PC such as multi-tasking, develop applications using higher languages such as Python and C#, hosting .NET applications and the list goes on. On the other hand, being managed by an operating system means access to lower level services and hardware resources are not as simple.
+The Raspberry Pi is a single board computer (SBC) with an operating system, and because it is managed by an operating system we get the same benefits as we would on a PC such as multi-tasking, develop applications using higher languages such as Python and C#, hosting .NET applications and the list goes on. On the other hand, being managed by an operating system means access to lower level services and hardware resources are not as simple.
 
 The Raspberry Pi in this case is acting as a BLE client, specifically searching for the Arduino device. Once found, it will connect to the Arduino and registered to be notified when the state of the switch changes (defined by a characteristic UUID).
 
@@ -137,7 +137,7 @@ Load the following Arduino sketch onto the Nano 33 IoT board. It is practically 
     }
 ```
 
-Now if you connect to the Arduino serial port using a terminal such as `Putty` for example, you should be able to see some console logging when the switch is pressed and depressed.
+Now if we connect to the Arduino serial port using a terminal such as `Putty` for example, we should be able to see some console logging when the switch is pressed and depressed.
 
 ![Console log switch activity](/assets/posts/2021-10-01-raspberry-pi-meet-arduino-arduino-meet-raspberry-pi-let-s-talk-bluetooth-le/switch_pressed_depressed_demo.gif)
 _Console log switch activity_
@@ -207,6 +207,6 @@ Below is a short clip showing:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WLf3vILkqXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">&nbsp;</iframe>
 
-As you can see, when the switch is pressed or depressed, we can see that the phone received a BLE notification.
+As we can see, when the switch is pressed or depressed, we can see that the phone received a BLE notification.
 
-That is basically it, it doesn't have to be a switch. You can connect whatever sensor you like (analog or digital) and add the necessary BLE services to the Arduino device as required.
+That is basically it, it doesn't have to be a switch. You can connect whatever sensor we like (analog or digital) and add the necessary BLE services to the Arduino device as required.

@@ -18,7 +18,7 @@ Protocol buffers (or protobuf) is a method of serializing structured data, and i
 * [Official documentation](https://developers.google.com/protocol-buffers)
 * [Protocol buffers source code](https://github.com/protocolbuffers/protobuf)
 
-The way protocol buffers works is you define a schema that encapsulates all the information you wish to communicate and you store it in a proto file. Let’s say you want to send an alarm status event which also include time and date. Then you might create a schema called AlarmStatus.proto which looks something like below:
+The way protocol buffers works is we define a schema that encapsulates all the information we wish to communicate and we store it in a proto file. Let’s say we want to send an alarm status event which also include time and date. Then we might create a schema called AlarmStatus.proto which looks something like below:
 
 ```
     // AlarmStatus.proto
@@ -31,20 +31,20 @@ The way protocol buffers works is you define a schema that encapsulates all the 
     }
 ```
 
-From that, you use the protobuf compiler to create a language specific class that implements the encoding/decoding of the protocol buffer data.
+From that, we use the protobuf compiler to create a language specific class that implements the encoding/decoding of the protocol buffer data.
 
 ## Installing the Protobuf Compiler
 
-The protocol compiler (protoc) is the common tool chain for converting our protobuf schemas to binary classes and is required regardless of what language you want to compile to.
+The protocol compiler (protoc) is the common tool chain for converting our protobuf schemas to binary classes and is required regardless of what language we want to compile to.
 
-* From the download page, download the latest protoc pre-built binaries specific to your development environment: protoc-$VERSION-$PLATFORM.zip.
+* From the download page, download the latest protoc pre-built binaries specific to our development environment: protoc-$VERSION-$PLATFORM.zip.
 * Unpack the zip file to a preferred folder and add an environment variable pointing the the folder containing the protoc executable e.g.
 
 ```
     C:\protoc-3.17.3-win64\bin
 ```
 
-If everything is setup correctly, you should be able to execute protoc.exe from any working directory.
+If everything is setup correctly, we should be able to execute protoc.exe from any working directory.
 
 ![Proto.exe demo](/assets/posts/2021-07-18-introduction-to-protocol-buffers/protoc_exe_demo.gif)
 
@@ -54,7 +54,7 @@ If everything is setup correctly, you should be able to execute protoc.exe from 
 
 From the [download page](https://github.com/protocolbuffers/protobuf/releases/latest), download the latest protocol buffers package for Python and follow README.md for instructions.
 
-At this point if you run pip list,  you should see that protobuf is installed.
+At this point if we run pip list,  we should see that protobuf is installed.
 
 ```
     PS D:\Downloads\protobuf-3.17.3\python> pip list
@@ -66,7 +66,7 @@ At this point if you run pip list,  you should see that protobuf is installed.
     six        1.16.0
     wheel      0.36.2
 ```
-Given that you have created your protobuf schema(s), you can easily generate the associated python class files with the following command:
+Given that we have created our protobuf schema(s), we can easily generate the associated python class files with the following command:
 
 ```
     PS D:\Workspace\ProtobufDemo> protoc --python_out=. *.proto
@@ -77,7 +77,7 @@ _Generate Python class from schema_
 
 **Protobuf serialisation with Python**
 
-To serialise a protobuf message you simply create a message, populate it then call `SerializeToString()`.
+To serialise a protobuf message we simply create a message, populate it then call `SerializeToString()`.
 
 ```
     # SerialisationDemo.py
@@ -113,7 +113,7 @@ To serialise a protobuf message you simply create a message, populate it then ca
 
 **Protobuf deserialisation with Python**
 
-To deserialise a protobuf message you simply create a message, then call ParseFromString() passing in the serialised data.
+To deserialise a protobuf message we simply create a message, then call ParseFromString() passing in the serialised data.
 
 ```
     # SerialisationDemo.py
@@ -160,7 +160,7 @@ To deserialise a protobuf message you simply create a message, then call ParseFr
 
 **Generating C# compiled protocol buffers from message definition**
 
-Given that you have created your protobuf schema(s), you can easily generate the associated C# class files with the following command `protoc –csharp_out=. *.proto`
+Given that we have created our protobuf schema(s), we can easily generate the associated C# class files with the following command `protoc –csharp_out=. *.proto`
 
 ```
     PS D:\Workspace\ProtobufDemo> ls
@@ -208,7 +208,7 @@ Create a new console application and add the Google.Protobuf NuGet package.
     PS D:\Workspace\ProtobufDemo>
 ```
 
-To serialise a protobuf message you simply create a message, populate it then call ToByteString().
+To serialise a protobuf message we simply create a message, populate it then call ToByteString().
 
 ```
     using System;

@@ -12,7 +12,7 @@ Tag:
 
 Let’s begin the journey with a simple blinking LED program, it’s a simple Arduino [sketch](https://www.arduino.cc/en/pmwiki.php?n=Tutorial/Sketch) which could be considered as the “Hello World!” of Internet of Things. While simple the “Hello World!” program is very important in that it’s a way of verifying the developing environment is set up correctly.
 
-## What you will need:
+## What we will need:
 
 * Arduino Uno board
 * Arduino IDE installed
@@ -21,7 +21,7 @@ Let’s begin the journey with a simple blinking LED program, it’s a simple Ar
 ![Arduino Uno Board](/assets/posts/2021-04-07-hello-world/arduino-uno-board.jpg)
 _Arduino Uno Board_
 
-The Arduino IDE comes pre-loaded with a vast selection of sketches to get things moving, and so there is already a sketch to do exactly what you want and it is called Blink. It can be found under the Basics Built-In Examples.
+The Arduino IDE comes pre-loaded with a vast selection of sketches to get things moving, and so there is already a sketch to do exactly what we want and it is called Blink. It can be found under the Basics Built-In Examples.
 
 ![Loading prloaded sketch](/assets/posts/2021-04-07-hello-world/using-pre-loaded-sketch-demo.gif)
 _Loading a preloaded blink sketch_

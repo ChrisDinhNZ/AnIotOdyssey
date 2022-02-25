@@ -34,7 +34,7 @@ We will create simple CoAP server with a single resource. The resource will hold
 * OBSERVABLE GET
     + This method allows other CoAP clients to register with the resource so they can be notified when the state of the alarm changes.
 
-To create a simple CoAP server you can use Python 3 and the [Aiocoap](https://github.com/chrysn/aiocoap) library.
+To create a simple CoAP server we can use Python 3 and the [Aiocoap](https://github.com/chrysn/aiocoap) library.
 
 ![Create a Python3 environment for the simple CoAP server](/assets/posts/2021-06-12-creating-a-simple-coap-server-with-python/coap_server_create_venv_demo.gif)
 _Create a Python3 environment for the simple CoAP server_
@@ -83,7 +83,7 @@ Now create a main() method to initialise the server and add the alarm resources 
         main()
 ```
 
-To test the server you can create a simple client that randomly update the state of the alarm every time it is run (by sending a PUT request with either an “ON” or “OFF” payload).
+To test the server we can create a simple client that randomly update the state of the alarm every time it is run (by sending a PUT request with either an “ON” or “OFF” payload).
 
 ```
     # client_put.py
@@ -124,7 +124,7 @@ The server may also periodically send the current state of the resource to all r
 
 Let proceed with the implementation by updating the `AlarmResource` class.
 
-Instead of inheriting from Aiocoap's `Resource` class, AlarmResource will now inherit from Aiocoap's `ObservableResource`. This will provide the functionality to manage the observers, you just need to handle what to send and when to send it.
+Instead of inheriting from Aiocoap's `Resource` class, AlarmResource will now inherit from Aiocoap's `ObservableResource`. This will provide the functionality to manage the observers, we just need to handle what to send and when to send it.
 
 Let also update the handling of the PUT request so that when the status of the alarm is updated, it will set a flag to indicate the server to notify observers.
 
@@ -207,7 +207,7 @@ Update the `main()` method so that it will spawn a separate daemon thread with t
         main()
 ```
 
-To test the Observe option you can create another client that will start observing the alarm status. This observe client will also use the Aiocoap python library. Whenever a notification is received, observe_callback() is called.
+To test the Observe option we can create another client that will start observing the alarm status. This observe client will also use the Aiocoap python library. Whenever a notification is received, observe_callback() is called.
 
 ```
     # client_observe.py

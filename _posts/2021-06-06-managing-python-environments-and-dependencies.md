@@ -8,7 +8,7 @@ Tag:
     - Tooling
 ---
 
-The great thing about Python is that whatever problems (including IoT problems) you are trying to solve, there is a very high chance there’s is a Python library out there that’s going to make your life a lot easier. The troublesome thing about Python is that, even at this point in time, there is still two Python universe and it makes life very hard for those that wants to move forward.
+The great thing about Python is that whatever problems (including IoT problems) we are trying to solve, there is a very high chance there’s is a Python library out there that’s going to make our life a lot easier. The troublesome thing about Python is that, even at this point in time, there is still two Python universe and it makes life very hard for those that wants to move forward.
 
 Let’s consider the following scenario:
 
@@ -17,7 +17,7 @@ Let’s consider the following scenario:
 * Runs on Python 2.7
 * Libraries owners may not have the time to migrate to Python 3.
 
-If you take the above scenario and try to migrate the solution to Python 3, it can be a daunting task.
+If we take the above scenario and try to migrate the solution to Python 3, it can be a daunting task.
 
 ## Managing Python environments in Windows
 
@@ -102,7 +102,7 @@ One reason I use Python is when working with CoAP. CoAP is a client/server trans
 
 Using the Python 3 virtual environment created earlier, let's take a look at some of the useful pip commands.
 
-For installing external packages, you can use `pip install <package-to-install>`.
+For installing external packages, we can use `pip install <package-to-install>`.
 
 ```
     (venv) PS D:\Workspace\python3-program> pip install aiocoap
@@ -214,7 +214,7 @@ As of writing, Python 3.9 was the latest version, however this was not installed
 ![Check installed Python demo](/assets/posts/2021-06-06-managing-python-environments-and-dependencies/python3.9_not_found_demo.gif)
 _Check installed Python demo_
 
-You can install Python 3.9 from source. [Python 3.9 install on Raspberry PI OS](https://community.home-assistant.io/t/python-3-9-install-on-raspberry-pi-os/241558) is a good post showing how you can go about doing that.
+You can install Python 3.9 from source. [Python 3.9 install on Raspberry PI OS](https://community.home-assistant.io/t/python-3-9-install-on-raspberry-pi-os/241558) is a good post showing how we can go about doing that.
 
 ![Install from source demo](/assets/posts/2021-06-06-managing-python-environments-and-dependencies/python3.9_install_from_source_demo.gif)
 _Install from source demo_

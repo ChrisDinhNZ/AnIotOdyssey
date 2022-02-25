@@ -15,7 +15,7 @@ Unlike desktop computers and mobile phones, generally speaking IoT devices are c
 
 This blog post will expand on how Azure IoT Hub works by focussing on creating an Azure IoT device and connecting it to an Azure IoT Hub.
 
-## What you will need:
+## What we will need:
 
 * [An Azure account](https://azure.microsoft.com/en-us/free/)
 * [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
@@ -25,7 +25,7 @@ This blog post will expand on how Azure IoT Hub works by focussing on creating a
 
 ## Creating an IoT device
 
-In this section you will be using Azure Powershell to register an IoT device with the Azure IoT Hub. You can easily add new devices using the `Add-AzIotHubDevice` commandlet.
+In this section we will be using Azure Powershell to register an IoT device with the Azure IoT Hub. You can easily add new devices using the `Add-AzIotHubDevice` commandlet.
 
 ```
     PS D:\Workspace\IoTHub> Add-AzIotHubDevice -ResourceGroupName "rg-sea-aniotodyssey" -IotHubName "ih-sea-aniotodyssey" -DeviceId "HomeGateway" -AuthMethod "shared_private_key"
@@ -45,21 +45,21 @@ In this section you will be using Azure Powershell to register an IoT device wit
     DeviceScope                :
 ```
 
-Now if you have a look at the IoT Hub in Azure portal, and under Explorers > IoT Devices you should see the new device you have just created.
+Now if we have a look at the IoT Hub in Azure portal, and under Explorers > IoT Devices we should see the new device we have just created.
 
 ![IoT Hub devices view](/assets/posts/2021-04-28-getting-started-with-azure-iot-devices/azure_iot_hub_devices_view.png)
 _IoT Hub devices view_
 
 ## Creating an IoT device agent
 
-In the previous section you registered an IoT device with the IoT Hub and named it “HomeGateway”. Next you will create a .NET application to manage the device activities and communication with the hub. For now you will just be simulating the device using a Windows service, but in a real deployment scenario you would deploy this service on the actual device.
+In the previous section we registered an IoT device with the IoT Hub and named it “HomeGateway”. Next we will create a .NET application to manage the device activities and communication with the hub. For now we will just be simulating the device using a Windows service, but in a real deployment scenario we would deploy this service on the actual device.
 
 Let’s create a Worker Service using the dotnet cli template and then run it just to make sure everything is as expected.
 
 ![Creating a new .NET Worker Service using dotnet cli](/assets/posts/2021-04-28-getting-started-with-azure-iot-devices/new_worker_project_demo.gif)
 _Creating a new .NET Worker Service using dotnet cli_
 
-As a Windows service, it will be running in the background. There is no console or GUI so there’s a couple of things you will need to do:
+As a Windows service, it will be running in the background. There is no console or GUI so there’s a couple of things we will need to do:
 
 * Log activities to a file
 * Register it with the Service registry and set it to run when the machine starts
@@ -124,7 +124,7 @@ and then reconfigure the logging in the Main() method.
     }
 ```
 
-At this point, if you run the service, then instead of logging to the console, all loggings will be written to `C:\ProgramData\IoTApps\HomeGateway\activities_report.txt`.
+At this point, if we run the service, then instead of logging to the console, all loggings will be written to `C:\ProgramData\IoTApps\HomeGateway\activities_report.txt`.
 
 **Deploy and run as a Windows Service**
 
@@ -145,7 +145,7 @@ Update IHostBuilder to use Windows service:
         .UseSerilog();
 ```
 
-Next you will deploy the service to a specified folder and register it as a Windows service. Open a Powershell terminal as an administrator and execute the following commands:
+Next we will deploy the service to a specified folder and register it as a Windows service. Open a Powershell terminal as an administrator and execute the following commands:
 
 ```
     PS D:\Workspace\IoTHub\HomeGateway> dotnet publish -o "C:\Program Files (x86)\IoTApps\HomeGateway"
@@ -171,7 +171,7 @@ Next you will deploy the service to a specified folder and register it as a Wind
             FLAGS              :
 ```
 
-If you open Windows Task Manager, under the Services tab you should see HomeGateway running as a Windows service.
+If we open Windows Task Manager, under the Services tab we should see HomeGateway running as a Windows service.
 
 ![HomeGateway running as a service](/assets/posts/2021-04-28-getting-started-with-azure-iot-devices/image_2021-04-27_191209.png)
 _HomeGateway running as a service_
@@ -228,12 +228,12 @@ Now update the Worker class so that it connects to the IoT Hub when the HomeGate
     }
 ```
 
-Now you should see the device connection state reflected on the Azure IoT Hub when the HomeGateway starts and stops using Get-AzIotHubDevice commandlet.
+Now we should see the device connection state reflected on the Azure IoT Hub when the HomeGateway starts and stops using Get-AzIotHubDevice commandlet.
 
 ![Device connecting and disconnecting to IoT Hub](/assets/posts/2021-04-28-getting-started-with-azure-iot-devices/device_connect_to_hub_demo.gif)
 _Device connecting and disconnecting to IoT Hub_
 
-Great, the service is now connecting to the IoT Hub as expected. Let’s update the Worker class so you can send events/messages to the hub. Since the service is simulating an IoT device, pretend it is a doorbell sending doorbell pressed events at every 60 seconds interval.
+Great, the service is now connecting to the IoT Hub as expected. Let’s update the Worker class so we can send events/messages to the hub. Since the service is simulating an IoT device, pretend it is a doorbell sending doorbell pressed events at every 60 seconds interval.
 
 ```
     public class Worker : BackgroundService
@@ -267,7 +267,7 @@ Great, the service is now connecting to the IoT Hub as expected. Let’s update 
     }
 ```
 
-Now redeploy the service again. If you go to the IoT Hub in Azure Portal, you should be able to see some telemetry showing that service have been sending messages to the hub.
+Now redeploy the service again. If we go to the IoT Hub in Azure Portal, we should be able to see some telemetry showing that service have been sending messages to the hub.
 
 ![HomeGateway messages sent telemetry](/assets/posts/2021-04-28-getting-started-with-azure-iot-devices/image_2021-04-28_223933.png)
 _HomeGateway messages sent telemetry_

@@ -14,7 +14,7 @@ Tag:
 
 This blog post is an introduction to Azure IoT Hub and how to get one up and running.
 
-## What you will need:
+## What we will need:
 
 * [An Azure account](https://azure.microsoft.com/en-us/free/)
 * [Powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
@@ -22,7 +22,7 @@ This blog post is an introduction to Azure IoT Hub and how to get one up and run
 
 ## Creating an IoT Hub
 
-You will be using Azure Powershell to create an Azure IoT Hub. Below are some Powershell commandlets that you can use to check that you are signed in and using the correct Azure subscription.
+You will be using Azure Powershell to create an Azure IoT Hub. Below are some Powershell commandlets that we can use to check that we are signed in and using the correct Azure subscription.
 
 ```
     PS D:\Workspace\IoTHub> Get-AzContext
@@ -35,9 +35,9 @@ You will be using Azure Powershell to create an Azure IoT Hub. Below are some Po
     PS D:\Workspace\IoTHub>
 ```
 
-Note that `Get-AzContext` returns nothing if you are not signed in (i.e. no context). But after signing in, `Get-AzContext` should return your subscription details.
+Note that `Get-AzContext` returns nothing if we are not signed in (i.e. no context). But after signing in, `Get-AzContext` should return our subscription details.
 
-Once you are logged in, you will need to create a resource group (basically a logical container). Every resource we create in Azure needs to be associated with a resource group.
+Once we are logged in, we will need to create a resource group (basically a logical container). Every resource we create in Azure needs to be associated with a resource group.
 
 ```
     PS D:\Workspace\IoTHub> New-AzResourceGroup -Name 'rg-sea-aniotodyssey' -Location 'southeastasia' -Verbose -Force -ErrorAction Stop
@@ -51,7 +51,7 @@ Once you are logged in, you will need to create a resource group (basically a lo
     PS D:\Workspace\IoTHub>
 ```
 
-You can now proceed to creating an Iot Hub. One thing I want to point out is the `SkuName` parameter. Depending on your needs, I am inclined to use the `F1` (which is the free tier) for prototyping purposes and basic usage. This should help avoiding unexpected bills.
+You can now proceed to creating an Iot Hub. One thing I want to point out is the `SkuName` parameter. Depending on our needs, I am inclined to use the `F1` (which is the free tier) for prototyping purposes and basic usage. This should help avoiding unexpected bills.
 
 ```
     PS D:\Workspace\IoTHub> New-AzIotHub -ResourceGroupName 'rg-sea-aniotodyssey' -Name 'ih-sea-aniotodyssey' -SkuName 'F1' -Units 1 -Location 'southeastasia'
@@ -67,7 +67,7 @@ You can now proceed to creating an Iot Hub. One thing I want to point out is the
     PS D:\Workspace\IoTHub>
 ```
 
-There you have it, you have just created an Azure IoT Hub hosted in a data center in South East Asia.
+There we have it, we have just created an Azure IoT Hub hosted in a data center in South East Asia.
 
 ![New IoT Hub created](/assets/posts/2021-04-18-getting-started-with-azure-iot-hub/azure-iot-hub-demo.png)
 _New IoT Hub created_
