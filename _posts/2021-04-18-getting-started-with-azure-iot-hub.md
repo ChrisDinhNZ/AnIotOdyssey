@@ -22,7 +22,7 @@ This blog post is an introduction to Azure IoT Hub and how to get one up and run
 
 ## Creating an IoT Hub
 
-You will be using Azure Powershell to create an Azure IoT Hub. Below are some Powershell commandlets that we can use to check that we are signed in and using the correct Azure subscription.
+We will be using Azure Powershell to create an Azure IoT Hub. Below are some Powershell commandlets that we can use to check that we are signed in and using the correct Azure subscription.
 
 ```
     PS D:\Workspace\IoTHub> Get-AzContext
@@ -51,7 +51,7 @@ Once we are logged in, we will need to create a resource group (basically a logi
     PS D:\Workspace\IoTHub>
 ```
 
-You can now proceed to creating an Iot Hub. One thing I want to point out is the `SkuName` parameter. Depending on our needs, I am inclined to use the `F1` (which is the free tier) for prototyping purposes and basic usage. This should help avoiding unexpected bills.
+We can now proceed to creating an Iot Hub. One thing I want to point out is the `SkuName` parameter. Depending on our needs, I am inclined to use the `F1` (which is the free tier) for prototyping purposes and basic usage. This should help avoiding unexpected bills.
 
 ```
     PS D:\Workspace\IoTHub> New-AzIotHub -ResourceGroupName 'rg-sea-aniotodyssey' -Name 'ih-sea-aniotodyssey' -SkuName 'F1' -Units 1 -Location 'southeastasia'

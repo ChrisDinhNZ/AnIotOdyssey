@@ -25,7 +25,7 @@ This blog post will expand on how Azure IoT Hub works by focussing on creating a
 
 ## Creating an IoT device
 
-In this section we will be using Azure Powershell to register an IoT device with the Azure IoT Hub. You can easily add new devices using the `Add-AzIotHubDevice` commandlet.
+In this section we will be using Azure Powershell to register an IoT device with the Azure IoT Hub. We can easily add new devices using the `Add-AzIotHubDevice` commandlet.
 
 ```
     PS D:\Workspace\IoTHub> Add-AzIotHubDevice -ResourceGroupName "rg-sea-aniotodyssey" -IotHubName "ih-sea-aniotodyssey" -DeviceId "HomeGateway" -AuthMethod "shared_private_key"

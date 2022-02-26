@@ -1,0 +1,21 @@
+@startuml high_level_sequence_diagram
+
+actor Bob as actor_1
+boundary KEY_FOB as a
+boundary RASPBERRY_PI as b
+boundary CLOUD as c
+boundary MOBILE_NETWORK as d
+boundary MOBILE_PHONE as e
+actor Alice as actor_2
+
+title Paging A Mobile Phone With A Key Fob
+...
+actor_1 --> a: Activate panic button
+a --> b: Indicate panic button activated (RF)
+b --> c: Indicate panic button activated (AMQP)
+c --> d: Indicate panic button activated (HTTP)
+d --> e: Indicate panic button activated (SMS)
+e --> actor_2: New text message received
+actor_1 <-- actor_2: Act on panic button activated
+...
+@enduml

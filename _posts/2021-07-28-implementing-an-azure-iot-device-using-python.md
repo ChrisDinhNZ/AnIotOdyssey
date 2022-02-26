@@ -12,7 +12,7 @@ Tag:
     - Azure Powershell
 ---
 
-The nice thing about Azure IoT is that there are SDKs already available in popular programming languages including C, C#, Java, Node.js, and Python and therefore should cater for our devices and preferred languages. You can find more details on the specific SDKs can be found with the following links:
+The nice thing about Azure IoT is that there are SDKs already available in popular programming languages including C, C#, Java, Node.js, and Python and therefore should cater for our devices and preferred languages. We can find more details on the specific SDKs can be found with the following links:
 
 * [Constrained Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#constrained-device-sdks)
 * [Unconstrained Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#unconstrained-device-sdks)

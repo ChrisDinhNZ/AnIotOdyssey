@@ -12,7 +12,7 @@ The great thing about Python is that whatever problems (including IoT problems) 
 
 Let’s consider the following scenario:
 
-* You have a solution that depends on a set of libraries and at specific versions.
+* We have a solution that depends on a set of libraries and at specific versions.
 * Those libraries also depends on other libraries and also at specific versions.
 * Runs on Python 2.7
 * Libraries owners may not have the time to migrate to Python 3.
@@ -118,7 +118,7 @@ For installing external packages, we can use `pip install <package-to-install>`.
     (venv) PS D:\Workspace\python3-program>
 ```
 
-You can use `pip list` to list all installed packages.
+We can use `pip list` to list all installed packages.
 
 ```
     (venv) PS D:\Workspace\python3-program> pip list
@@ -131,7 +131,7 @@ You can use `pip list` to list all installed packages.
     (venv) PS D:\Workspace\python3-program>
 ```
 
-You can use `pip show <package-to-show>` to show the specified package's details.
+We can use `pip show <package-to-show>` to show the specified package's details.
 
 ```
     (venv) PS D:\Workspace\python3-program> pip show aiocoap
@@ -148,7 +148,7 @@ You can use `pip show <package-to-show>` to show the specified package's details
     (venv) PS D:\Workspace\python3-program>
 ```
 
-You can use “pip list –format=freeze > requirements.txt” to export the list to a file which could then be used in another virtual environment.
+We can use “pip list –format=freeze > requirements.txt” to export the list to a file which could then be used in another virtual environment.
 
 ```
     (venv) PS D:\Workspace\python3-program> pip list --format=freeze > requirements.txt
@@ -175,8 +175,8 @@ You can use “pip list –format=freeze > requirements.txt” to export the lis
     ---------- -------
     pip        21.1.1
     setuptools 56.0.0
-    WARNING: You are using pip version 21.1.1; however, version 21.1.2 is available.
-    You should consider upgrading via the 'd:\workspace\python3-program-v2\venv\scripts\python.exe -m pip install --upgrade pip' command.
+    WARNING: We are using pip version 21.1.1; however, version 21.1.2 is available.
+    We should consider upgrading via the 'd:\workspace\python3-program-v2\venv\scripts\python.exe -m pip install --upgrade pip' command.
     (venv) PS D:\Workspace\python3-program-v2> python.exe -m pip install --upgrade pip
     Requirement already satisfied: pip in d:\workspace\python3-program-v2\venv\lib\site-packages (21.1.1)
     Collecting pip
@@ -214,7 +214,7 @@ As of writing, Python 3.9 was the latest version, however this was not installed
 ![Check installed Python demo](/assets/posts/2021-06-06-managing-python-environments-and-dependencies/python3.9_not_found_demo.gif)
 _Check installed Python demo_
 
-You can install Python 3.9 from source. [Python 3.9 install on Raspberry PI OS](https://community.home-assistant.io/t/python-3-9-install-on-raspberry-pi-os/241558) is a good post showing how we can go about doing that.
+We can install Python 3.9 from source. [Python 3.9 install on Raspberry PI OS](https://community.home-assistant.io/t/python-3-9-install-on-raspberry-pi-os/241558) is a good post showing how we can go about doing that.
 
 ![Install from source demo](/assets/posts/2021-06-06-managing-python-environments-and-dependencies/python3.9_install_from_source_demo.gif)
 _Install from source demo_

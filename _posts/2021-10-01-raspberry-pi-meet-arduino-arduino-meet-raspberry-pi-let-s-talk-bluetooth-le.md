@@ -209,4 +209,4 @@ Below is a short clip showing:
 
 As we can see, when the switch is pressed or depressed, we can see that the phone received a BLE notification.
 
-That is basically it, it doesn't have to be a switch. You can connect whatever sensor we like (analog or digital) and add the necessary BLE services to the Arduino device as required.
+That is basically it, it doesn't have to be a switch. We can connect whatever sensor we like (analog or digital) and add the necessary BLE services to the Arduino device as required.

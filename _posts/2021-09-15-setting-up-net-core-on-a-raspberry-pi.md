@@ -16,7 +16,7 @@ _No .NET SDK installed demo_
 
 As we can see, executing the `dotnet` command does not work.
 
-At the time of writing, I have downloaded the ARM32 .NET SDK version 5.0.401, however we may be able to download a later/different version by visiting the [.NET Download page](https://dotnet.microsoft.com/download/dotnet). You can get more details about the installed Raspberry Pi OS so that we can install the correct SDK by using the `cat /etc/os-release` and `uname -m` command.
+At the time of writing, I have downloaded the ARM32 .NET SDK version 5.0.401, however we may be able to download a later/different version by visiting the [.NET Download page](https://dotnet.microsoft.com/download/dotnet). We can get more details about the installed Raspberry Pi OS so that we can install the correct SDK by using the `cat /etc/os-release` and `uname -m` command.
 
 Download and install the .NET SDK onto the raspberry pi by issuing the following commands:
 
