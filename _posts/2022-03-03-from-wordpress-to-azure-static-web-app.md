@@ -79,3 +79,11 @@ That is it. We now have a build and deploy pipeline where everytime we push some
 
 ## A CI/CD Demo
 
+Let's create a new post and push it to GitHub.
+
+![CI/CD Demo](/assets/posts/2022-03-03-from-wordpress-to-azure-static-web-app/ci_cd_demo.gif)
+
+When a new `commit` is pushed to GitHub, a build pipeline is triggered as defined by the GitHub action, and once the build is done we should see our new post published to the blog site.
+
+![Post CI/CD Demo](/assets/posts/2022-03-03-from-wordpress-to-azure-static-web-app/post_ci_cd_demo.gif)
+
