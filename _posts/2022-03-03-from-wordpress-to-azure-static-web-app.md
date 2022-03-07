@@ -10,7 +10,7 @@ Tag:
     - Jekyll
 ---
 
-Professionally I am an embedded software developer and I mostly code in C. I specialised in two-way radio communications solutions such as [DMR](https://en.wikipedia.org/wiki/Digital_mobile_radio), [P25](https://en.wikipedia.org/wiki/Project_25).
+By day I am an embedded software developer. I worked mostly in two-way digital radio communications systems such as [DMR](https://en.wikipedia.org/wiki/Digital_mobile_radio), [P25](https://en.wikipedia.org/wiki/Project_25).
 
 In my spare time I also tinker with other technologies outside of the embedded software domain. This tinkering and the curiosity to learn has been and continue to be a rewarding journey, it has taken me down many rabbit holes but equally enlightened by them.
 
@@ -18,7 +18,7 @@ About a year ago, I wanted to record these experiences and the knowledge that I 
 
 While `WordPress.com` is a great platform, in my case (in term of flexibility and value for money in the long run) it did not seem like the best option. So I started looking at alternatives.
 
-This blog post is about how we can get a blog site up and running using `Jekyll`.
+In this blog post, we will go through the process of getting a blog site up and running using `Jekyll`.
 
 ## Jekyll - a static site generator
 
@@ -26,7 +26,7 @@ During my search for an alternatives I came across the concept of `static site g
 
 **Installing Jekyll**
 
-The first step is to install Jekyll on our development machine. We can follow the installation instruction based on our machine's operating system [here](https://jekyllrb.com/docs/installation).
+The first step is to install `Jekyll` on our development machine. You can follow the installation instruction based on your machine's operating system [here](https://jekyllrb.com/docs/installation).
 
 Check that the installation was successful by verifying the installed version for the following:
 
@@ -46,11 +46,11 @@ We can preview the newly created site by executing `bundle exec jekyll serve`
 
 ![Preview new Jekyll site!](/assets/posts/2022-03-03-from-wordpress-to-azure-static-web-app/demo_preview_new_jekyll_site.gif)
 
-Jekyll uses themes to change the look and feel of our site. There are plenty of themes out there, some are paid while some are free. For my blog site I liked the look and feel of `startbootstrap-clean-blog-jekyll`. We can find more details on how to install the template on their [GitHub page](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll)
+Jekyll uses themes to change the look and feel of a site. There are plenty of themes out there, some are paid while some are free. For my blog site I liked the look and feel of `startbootstrap-clean-blog-jekyll`. You can find more details on how to install the template on their [GitHub page](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll)
 
 **Adding and Editing Site Content**
 
-Blog posts goes into the `_posts` folder. The file can be added manually, but we can use the `jekyll-compose` plugin as well. To add the plugin:
+Blog posts goes into the `_posts` folder. The file can be added manually, but we can also use the `jekyll-compose` plugin as well. To add the plugin:
 
 * Add `gem 'jekyll-compose', group: [:jekyll_plugins]` to the Gemfile.
 * In a console terminal run `bundle` again to install the gem above.
@@ -67,15 +67,13 @@ We can also create stand-alone pages as well by running `bundle exec jekyll page
 
 In this section we will be using [GitHub Actions](https://docs.github.com/en/actions) to deploy the site to production using a [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment) workflow.
 
-The blog site's source code will be hosted on `GitHub`. At this point let's assumed all our work have been commited and pushed to a GitHub repository. If you are not familiar working with GitHub, check out their documentation for creating a new repository [here](https://docs.github.com/en/get-started/quickstart/create-a-repo).
+The blog site's source code will be hosted on `GitHub`. At this point let's assumed everything has been commited and pushed to a GitHub repository. If you are not familiar working with GitHub, check out their documentation for creating a new repository [here](https://docs.github.com/en/get-started/quickstart/create-a-repo).
 
 In order to get the blog site out there into the wild, it needs to be published to a server somewhere. For this we will create a `static web app` resource via the `Azure portal` to host the site. The documentation on how to create a static web app can be found [here](https://docs.microsoft.com/en-us/azure/static-web-apps/publish-jekyll#create-the-application).
 
 ## Link A Custom Domain To Azure Static Web App
 
 By default, when we create a static web app resource, an auto-generated domain name is associated with the site. It will be something like `https://some-generated-domain.azurestaticapps.net`. However, we would probably prefer the site to be associated with something like `myblogsite.com` or `www.myblogsite.com`. These are custom domain names which we can easily map to the generated domain name. The documentation on how to map custom domains to a static web app can be found [here](https://docs.microsoft.com/en-us/azure/static-web-apps/custom-domain).
-
-That is it. We now have a build and deploy pipeline where everytime we push some changes to GitHub, the site is rebuilt and published to the Azure Static Web App.
 
 ## A CI/CD Demo
 
@@ -87,3 +85,4 @@ When a new `commit` is pushed to GitHub, a build pipeline is triggered as define
 
 ![Post CI/CD Demo](/assets/posts/2022-03-03-from-wordpress-to-azure-static-web-app/post_ci_cd_demo.gif)
 
+That is it. We now have a build and deploy pipeline where everytime we push some changes to GitHub, the site is rebuilt and published to the Azure Static Web App.
