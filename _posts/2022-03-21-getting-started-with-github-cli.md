@@ -15,7 +15,7 @@ I personally version controls a lot of my works. These works are not just limite
 
 There are many `version control platforms` out there ([GitHub](https://github.com/github), [GitLab](https://about.gitlab.com/), [BitBucket](https://bitbucket.org/)).
 
-For myself, I am using `GitHub`. My workflow generally involves creating a remote repository on GitHub (up till now this has been done via a browser), then create a local repository on my development machine by cloning the remote repository (by the way, if you are not familiar with some of these terminologies, have a read at this [About Git](https://docs.github.com/en/get-started/using-git/about-git)). Yes there is a bit of context switching involved so I thought this would be a good opportunity for us to have a look at the [GitHub CLI](https://github.com/cli/cli) tool.
+For myself, I am using `GitHub`. My workflow generally involves creating a remote repository on GitHub (up till now this has been done via a browser), then create a local repository on my development machine by cloning the remote repository (by the way, if you are not familiar with some of these terminologies, have a read of this [About Git](https://docs.github.com/en/get-started/using-git/about-git)). Yes there is a bit of context switching involved so I thought this would be a good opportunity for us to have a look at the [GitHub CLI](https://github.com/cli/cli) tool.
 
 ## Installing GitHub CLI
 
