@@ -42,4 +42,4 @@ To use the non-interactive method, run the command `gh repo create` but this tim
 
 ![Create new GitHub repository](/assets/posts/2022-03-21-getting-started-with-github-cli/github_cli_create_repo.gif)
 
-As you can see, it is very easy to create a new repository on GitHub and clone it to our local environment without the need to switch to a browser. For me, this workflow alone makes GitHub CLI an awesome addition to our development toolkit.
+There's a lot more we can do with GitHub CLI but for me, just being able to create a new repository on GitHub and clone it to our local environment without the need to switch to a browser is enough to add GitHub CLI to my development toolkit.
