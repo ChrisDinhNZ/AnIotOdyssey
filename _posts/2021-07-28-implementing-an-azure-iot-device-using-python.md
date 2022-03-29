@@ -12,7 +12,7 @@ Tag:
     - Azure Powershell
 ---
 
-The nice thing about Azure IoT is that there are SDKs already available in popular programming languages including C, C#, Java, Node.js, and Python and therefore should cater for our devices and preferred languages. We can find more details on the specific SDKs can be found with the following links:
+The nice thing about Azure IoT is that there are SDKs already available in popular programming languages including C, C#, Java, Node.js, and Python and therefore should cater for our devices and preferred languages. We can find more details on the specific SDKs with the following links:
 
 * [Constrained Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#constrained-device-sdks)
 * [Unconstrained Device SDKs](https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks#unconstrained-device-sdks)
@@ -185,7 +185,7 @@ Ok let's quickly summarise the code above to get an idea of what it's doing:
 
 * Read the neccessary app settings which was stored as environment variables earlier, i.e the devices name and their connection string.
 * Instantiate the devices by passing in the required parameters to the respective classes.
-* Connect the devices, the `asyncio.gather()` allows we to start the connections at the same time (well at least calls the `connect()` method asynchronously anyway).
+* Connect the devices, the `asyncio.gather()` allows us to start the connections at the same time (well at least calls the `connect()` method asynchronously anyway).
 * Once the `asyncio.gather()` completes, check that both devices are connected:
     + If both devices are not connected, then we can't do much so disconnect the ones that is connected and exit.
     + Otherwise, sleep for 5 seconds then disconnect and exit.
