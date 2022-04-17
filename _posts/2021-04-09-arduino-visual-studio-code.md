@@ -26,9 +26,9 @@ Open VS Code and press Ctrl + Shift + X to open the Extensions panel and type vs
 ![Installing Arduino extension](/assets/posts/2021-04-09-arduino-visual-studio-code/install_arduino_extension.png)
 _Installing Arduino extension_
 
-This extension provides several commands in the Command Palette which we can activate using `F1` or `Ctrl + Shift + P`) for working with `*.ino` files. we can filter the command palette just specific to this extension by typing arduino.
+This extension provides several commands in the Command Palette which we can activate using `F1` or `Ctrl + Shift + P`) for working with `*.ino` files. We can filter the command palette just specific to this extension by typing arduino.
 
-Under our current working directory, execute the `Arduino: Initialize` command from the command palette. This will allow we to select a name for our new sketch and the Arduino board we want to work with. VS Code will then setup the Arduino environment for us. Two configuration files will be generated which describes our Arduino environment: `arduino.json`, `c_cpp_properties.json`.
+Under our current working directory, execute the `Arduino: Initialize` command from the command palette. This will allow us to select a name for our new sketch and the Arduino board we want to work with. VS Code will then setup the Arduino environment for us. Two configuration files will be generated which describes our Arduino environment: `arduino.json`, `c_cpp_properties.json`.
 
 ![Installing Arduino extension](/assets/posts/2021-04-09-arduino-visual-studio-code/new-arduino-environment-demo.gif)
 _Arduino initialise_
