@@ -297,14 +297,14 @@ So instead of using the remote, the plan is to have the Arduino Uno listens for 
 
 Ok let's summarise the sketch above.
 
-In the `setup()` we initialises a couple of things:
+In the `setup()` function we initialises a couple of things:
 
 * Clear the command buffer
 * Set which GPIO pin the IR transmit module's signal line is connected to
 * Use the built-in LED to provide some visual feedback when transmitting
 * Set serial baud rate to listen to
 
-In the `loop()` we continuously listen to the serial port for incoming data:
+In the `loop()` function we continuously listen to the serial port for incoming data:
 
 * Whatever comes through will be added to a buffer
 * A line feed and carriage return is use to indicate full command has been received and command can be processed
