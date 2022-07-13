@@ -1,0 +1,14 @@
+@startuml high_level_sequence_diagram_azure_iot_hub_krv7080
+
+boundary AZURE_IOT_HUB as a
+boundary RASPBERRY_PI as b
+boundary ARDUINO as c
+boundary KR_V7080 as d
+
+title Communicating With The KR-V7080 From Azure IoT Hub
+...
+a --> b: Power on request (AMQP)
+b --> c: Power on request (BLE)
+c --> d: Power on request (IR)
+...
+@enduml

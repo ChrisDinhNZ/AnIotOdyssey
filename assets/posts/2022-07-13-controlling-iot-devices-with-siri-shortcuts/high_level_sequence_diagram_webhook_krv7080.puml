@@ -1,0 +1,23 @@
+@startuml high_level_sequence_diagram_webhook_krv7080
+
+box "Web Domain" #LightYellow
+boundary INTERNET as a
+boundary WEB_HOOK as b
+end box
+
+box "IoT Domain" #LightCyan
+boundary AZURE_IOT_HUB as c
+boundary RASPBERRY_PI as d
+boundary ARDUINO as e
+boundary KR_V7080 as f
+end box
+
+title Communicating With The KR-V7080 Via A Webhook
+...
+a --> b: Power on request (HTTP)
+b --> c: Power on request (Azure Durable Function)
+c --> d: Power on request (AMQP)
+d --> e: Power on request (BLE)
+e --> f: Power on request (IR)
+...
+@enduml

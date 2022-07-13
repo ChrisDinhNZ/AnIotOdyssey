@@ -1,0 +1,14 @@
+@startuml high_level_sequence_diagram_nrf_connect_hm10
+
+actor Bob as actor_1
+boundary NRF_CONNECT as a
+boundary ARDUINO as b
+boundary KR_V7080 as c
+
+title Bluetooth Communication Using A HM-10 Module
+...
+actor_1 --> a: Power on request (manual text entry)
+a --> b: Power on request (BLE)
+b --> c: Power on request (IR)
+...
+@enduml
